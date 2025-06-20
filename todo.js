@@ -15,8 +15,21 @@ function Todo()
 
     }
 
+ function completedtodo(index) {
+    const updatedtodos = todos.map((todo , i) => 
+    {
+        if(i == index)
+        {
+             return { ...todo , completed: !todo.completed };
+        }
 
-   
+        else{
+            return todo;
+        }
+    })
+
+    setTodos(updatedtodos);
+ }
     
    function addtodo()
     {
@@ -25,7 +38,7 @@ function Todo()
 
         // setTodos([...todos, todo]);
         //  setTodo("");
-          const newtodo = {title:todo , description : desc };
+          const newtodo = {title:todo , description : desc , completed:false , date: new Date().toLocaleDateString() };
          setTodos([...todos , newtodo]);
          setTodo("");
          setdesc("");
@@ -40,21 +53,27 @@ function Todo()
         <h2>Add a New Task</h2>
         <input type="text" placeholder="Enter task title" value={todo} onChange={(e) => setTodo(e.target.value)} ></input>
         <input type="text" placeholder="Enter task description" value={desc} onChange={(e) => setdesc(e.target.value)} ></input>
-         <button onClick={addtodo}>Add</button>
+         <button className='add' onClick={addtodo}>Add</button>
         <h2>📋 Your Tasks</h2>
         
         
               <ul>
                 {
-            todos.map(({title , description }, index) =>
+            todos.map(({title , description , completed , date }, index) =>
             {
-                  return ( <li key={index} className='todo-item'>
+                  return ( <li key={index} className={`todo-item ${completed ? 'completed' : ''}`}>
                     <div className='show'>
                     <h4>{title}</h4><button className='delto' onClick={() => deleteodo(index)}>Delete</button>
-                    
                     </div>
+                    <div className='show'>
                     <p>{description}</p>
-                    
+                     <input
+            type="checkbox"
+            checked={completed}
+            onChange={() => completedtodo(index)}
+          />
+                    </div>
+                    <p className='date'>Added on : {date}</p>
                   </li>
                   
                   )

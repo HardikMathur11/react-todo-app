@@ -1,98 +1,171 @@
-/* Apply to body */
-body {
+/* Reset and base */
+* {
   margin: 0;
   padding: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #f8f9fa;
-}
-
-/* Container around everything */
-#root {
-  max-width: 700px;
-  margin: 40px auto;
-  padding: 20px;
-}
-
-/* Headings */
-h1 {
-  text-align: center;
-  font-size: 2.5rem;
-  color: #343a40;
-  margin-bottom: 30px;
-}
-
-h2 {
-  margin-top: 30px;
-  font-size: 1.5rem;
-  color: #212529;
-}
-
-/* Input box */
-input[type="text"] {
-  width: 100%;
-  padding: 12px 15px;
-  margin: 10px 0;
-  font-size: 16px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  outline: none;
   box-sizing: border-box;
 }
 
-/* Add Button */
-button {
-  padding: 10px 20px;
-  background-color: #007bff;
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #1e0ead, #6e2222);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 30px 15px;
+}
+
+/* Main container */
+#root {
+  width: 100%;
+  max-width: 700px;
+   background: linear-gradient(135deg, #1e0ead, #6e2222);
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 8px 34px rgba(19, 1, 1, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(47, 4, 4, 0.867);
+}
+
+/* Headings */
+h1, h2 {
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 1.2rem;
+  margin-top: 25px;
+  color: #a6b3ff;
+}
+
+/* Input fields */
+input[type="text"] {
+  width: 100%;
+  padding: 12px 15px;
+  margin-top: 8px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+input::placeholder {
+  color: #bbb;
+}
+
+/* Button styling */
+.add {
+  padding: 10px 24px;
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
   color: white;
   font-size: 16px;
   border: none;
-  border-radius: 6px;
-  margin-top: 10px;
+  border-radius: 10px;
+  margin-top: 12px;
   cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease;
 }
 
-button:hover {
-  background-color: #0056b3;
+.add:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #00a1ff, #0055ff);
 }
 
-/* Todo List Items */
+/* Todo list */
 ul {
   list-style: none;
   padding: 0;
+  margin-top: 20px;
 }
 
+/* Individual todo item */
 .todo-item {
-  background-color: #f8f9fa;
-  margin-bottom: 16px;
-  padding: 15px 20px;
-  border-radius: 10px;
-  border: 1px solid #e5e0e0;
-  list-style-type: none;
-  box-shadow: 0 2px 6px rgba(115, 107, 107, 0.871);
+  background: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
+  margin-bottom: 18px;
+  padding: 18px 20px;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   transition: transform 0.2s ease;
 }
 
 .todo-item:hover {
-  transform: scale(1.01);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
 }
 
+/* Flex row for title + delete */
 .show {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 
+/* Delete button */
 .delto {
-  background-color: crimson;
+  background-color: #981519;
   color: white;
   border: none;
-  padding: 6px 10px;
-  border-radius: 5px;
+  padding: 6px 12px;
+  border-radius: 8px;
   cursor: pointer;
+  transition: background 0.3s ease;
 }
 
 .delto:hover {
-  background-color: darkred;
+  background-color: #b0787b;
+}
+
+/* Description text */
+.todo-item p {
+  margin-top: 10px;
+  color: #d9d9ff;
+  font-size: 15px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .show {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .delto {
+    margin-top: 10px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  #root {
+    padding: 20px;
+  }
+}
+
+.completed p , .completed h4  {
+  text-decoration: line-through;
+  opacity: 0.111;
+}
+
+
+
+
+
+
+
+.date {
+  font-size: 13px;
+  color: #bbb;
+  margin-top: 8px;
+  font-style: italic;
+  text-align: right;
 }
 
