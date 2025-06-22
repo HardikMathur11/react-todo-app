@@ -48,21 +48,24 @@ git clone https://github.com/HardikMathur11/react-todo-app.git
 
 ## 🛠 Installation & Run Locally
 
-1. Clone the repository
+1.Clone the repository
  git clone https://github.com/HardikMathur11/react-todo-app.git
  
 2.Navigate to the project folder
 cd react-todo-app
 
 3.Install dependencies
-npm install
+ npm install
 
 4.Start the development server
-npm run start
+ npm run start
 
+---
  Contributing
 Contributions, suggestions, and forks are welcome!
 Feel free to open a PR or issue. ✨
+
+---
 
 📄 License
 This project is licensed under the MIT License.
