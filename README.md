@@ -61,11 +61,11 @@ cd react-todo-app
  npm run start
 
 ---
- Contributing
+## Contributing:-
 Contributions, suggestions, and forks are welcome!
 Feel free to open a PR or issue. ✨
 
 ---
 
-📄 License
+## 📄 License:-
 This project is licensed under the MIT License.
